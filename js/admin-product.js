@@ -8,6 +8,7 @@ let vasosIniciales = [
     imagen:
       "https://http2.mlstatic.com/D_NQ_NP_819223-MLA72366524529_102023-O.webp",
     id: "8779b233-fee1-4700-90e0-3f8ce64b1318",
+    fecha:"2023/10/24"
   },
   {
     titulo: "Vaso Campeon del Mundo",
@@ -17,6 +18,7 @@ let vasosIniciales = [
     imagen:
       "https://files.cults3d.com/uploaders/16864247/illustration-file/db0770ab-56d8-4e6f-ac76-d7fc87ee8059/untitled.39.jpg",
     id: "f4ff86bb-754e-4720-860e-6e3fadbd7d39",
+    fecha:"2023/10/24"
   },
   {
     titulo: "Vaso marcas de auto",
@@ -25,6 +27,7 @@ let vasosIniciales = [
     imagen:
       "https://files.cults3d.com/uploaders/27173511/illustration-file/547de209-c0a9-43e1-88b6-7aa5dd108851/chop-chevrolet-1-litro_2023-Jun-16_06-52-16PM-000_CustomizedView18699632341.png",
     id: "97f2e494-e658-41ef-8ed0-ccf51e248cb8",
+    fecha:"2023/10/24"
   },
   {
     titulo: "Vaso Messi",
@@ -33,6 +36,7 @@ let vasosIniciales = [
     precio: 4000,
     imagen: "https://http2.mlstatic.com/D_891483-MLA69878034474_062023-F.jpg",
     id: "8c1bd42c-33e7-45a0-b60e-5ff55717680b",
+    fecha:"2023/10/24"
   },
 ];
 
@@ -45,10 +49,10 @@ const inputFiltrarHTML = document.getElementById("filtrar")
 const formularioProductoHTML = document.getElementById("formularioProducto");
 
 let vasosProducto =
-  JSON.parse(localStorage.getItem("productos")) || vasosIniciales;
+  JSON.parse(localStorage.getItem("productosCargados")) || vasosIniciales;
 
-if (JSON.parse(localStorage.getItem("productos")) === null) {
-  localStorage.setItem("productos", JSON.stringify(vasosProducto));
+if (JSON.parse(localStorage.getItem("productosCargados")) === null) {
+  localStorage.setItem("productosCargados", JSON.stringify(vasosProducto));
 }
 
 pintarProductos(vasosProducto);
@@ -107,7 +111,7 @@ const borrarProducto = (idABuscar) => {
       if (indiceEncontrado !== -1) {
         vasosProducto.splice(indiceEncontrado, 1);
         pintarProductos(vasosProducto);
-        localStorage.setItem("productos", JSON.stringify(vasosProducto));
+        localStorage.setItem("productosCargados", JSON.stringify(vasosProducto));
         Swal.fire("Borrado", "Producto borrado correctamente", "success");
       }
     }
@@ -128,6 +132,7 @@ formularioProductoHTML.addEventListener("submit", (evt) => {
     imagen: el.imagen.value,
     precio: el.precio.valueAsNumber,
     titulo: el.titulo.value,
+    fecha: obtenerFecha()
   };
 
   if (idEditar) {
@@ -151,7 +156,7 @@ formularioProductoHTML.addEventListener("submit", (evt) => {
   });
 
   pintarProductos(vasosProducto);
-  localStorage.setItem("productos", JSON.stringify(vasosProducto));
+  localStorage.setItem("productosCargados", JSON.stringify(vasosProducto));
   formularioProductoHTML.reset();
   el.titulo.focus();
 });
@@ -169,7 +174,6 @@ const editarProducto = function (idRecibido) {
   elements.descripcion.value = productoEditar.descripcion;
   elements.precio.value = productoEditar.precio;
   elements.imagen.value = productoEditar.imagen;
-  console.log(elements.imagen.value);
   btn.innerText = "Editar Producto";
   btn.classList.add("btn-success");
 };
@@ -182,7 +186,7 @@ btnCancelar.addEventListener("click", () => {
   
 });
 
-/* function obtenerFecha() {
+function obtenerFecha() {
     const fecha = new Date()
     let mes = fecha.getMonth() + 1;
     if(mes < 10) {
@@ -196,4 +200,4 @@ btnCancelar.addEventListener("click", () => {
 
     const fechaFormateada = `${year}-${mes}-${dia}`
     return fechaFormateada
-} */
+}

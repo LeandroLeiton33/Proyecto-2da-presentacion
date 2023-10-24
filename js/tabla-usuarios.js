@@ -41,7 +41,7 @@ const borrarUsuario = (emailABuscar) => {
       if (indiceEncontrado !== -1) {
         usuariosAPintar.splice(indiceEncontrado, 1);
         pintarUsuarios(usuariosAPintar);
-        localStorage.setItem("productos", JSON.stringify(usuariosAPintar));
+        localStorage.setItem("usuarios", JSON.stringify(usuariosAPintar));
         Swal.fire("Borrado", "Usuario borrado correctamente", "success");
       }
     }

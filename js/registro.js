@@ -64,7 +64,6 @@ formularioRegistro.addEventListener('submit', (evt) => {
     console.log(usuarios);
   } else {
     Swal.fire("Error", "Las contraseñas ingresadas no coinciden", "error");
-    console.log("Contraseña no coincide");
   }
 });
 
