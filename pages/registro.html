@@ -36,8 +36,7 @@
               <div class="icon-shop">
                 <i class="fa-solid fa-cart-shopping"></i>
               </div>
-              <p>John Paul</p>                
-              <i class="fa-solid fa-user user"></i>
+              <a id="btn-login" class="icon-shop" href="/pages/login.html">Login</a>
           </div>
         </div>
       </div>
@@ -52,47 +51,47 @@
   <main>
     <div class="container-register">
       <div class="contact-register">
-        <form action="submeter-formulario.php" method="post">       
-    
+        <form id="formulario-registro" action="submeter-formulario.php" method="post">       
+                <!-- --------------NOMBRE COMPLETO--------- -->
               <p>
                 <label for="nombre-completo" class="colocar-nombre">Nombre completo
                   <span class="obligatorio">*</span>
                 </label>
-                  <input class="input-form" type="text" name="introducir-nombre" id="nombre-completo" required="obligatorio" placeholder="Escribe tu nombre completo" autofocus maxlength="35" minlength="5">
+                  <input class="input-form" type="text" name="introducirNombre" id="nombre-completo" required="obligatorio" placeholder="Escribe tu nombre completo" autofocus maxlength="35" minlength="5" value="leandro leiton">
               </p>
-            
+             <!-- --------------EMAIL--------- -->
               <p>
                 <label for="email" class="colocar-email">Email
                   <span class="obligatorio">*</span>
                 </label>
-                  <input class="input-form" type="email" name="introducir-email" id="email" required="obligatorio" placeholder="Escribe tu Email" maxlength="35">
+                  <input class="input-form" type="email" name="introducirEmail" id="email" required="obligatorio" placeholder="Escribe tu Email" maxlength="35" value="admin@admin.com">
               </p>
-          
+              <!-- --------------CONTRASEÑA--------- -->
                <p>
                 <label for="contraseña" class="contraseña">Contraseña
                   <span class="obligatorio">*</span>
                 </label>
-                  <input class="input-form" type="password" name="password" id="contraseña" required="obligatorio" placeholder="Escribe tu contraseña" maxlength="35" minlength="5">
+                  <input class="input-form" type="password" name="introducirPassword" id="contraseña" required="obligatorio" placeholder="Escribe tu contraseña" maxlength="35" minlength="5" value="admin">
               </p>  
-              
+              <!-- --------------REPETIR CONTRASEÑA--------- -->
               <p>
                 <label for="repetir-contraseña" class="contraseña-repit">Repetir contraseña
                   <span class="obligatorio">*</span>
                 </label>
-                  <input class="input-form" type="password" name="repit-password" id="repetir-contraseña" required="obligatorio" placeholder="Repite tu contraseña" maxlength="35" minlength="5">
+                  <input class="input-form" type="password" name="repitPassword" id="repetir-contraseña" required="obligatorio" placeholder="Repite tu contraseña" maxlength="35" minlength="5" value="admin">
               </p>
-    
+                <!-- --------------FECHA NACIMIENTO--------- -->
               <p>
                 <label for="fecha-nacimiento" class="fecha">Fecha de nacimiento
                   <span class="obligatorio">*</span>
                 </label>
-                <input class="input-form" type="date" id="fecha-nacimiento" name="introducir-fecha" required="obligatorio">
+                <input class="input-form" type="date" id="fechaNacimiento" name="introducirFecha">
               </p>
-              
+              <!-- --------------PROVINCIA--------- -->
               <p>
                 <label for="provincia">Seleccione Provincia
                 </label>
-                <select class=" input-form" aria-label="Default select example">
+                <select name="introducirProvincia" class=" input-form" aria-label="Default select example">
                   <option value="">Seleccione Provinca</option>
                   <option value="buenos_aires">Buenos Aires</option>
                   <option value="chaco">Chaco</option>
@@ -119,14 +118,14 @@
                   <option value="tierra_del_fuego">Tierra del Fuego</option>
                 </select>
               </p>
-            
+            <!-- --------------MENSAJE--------- -->
               <p>
                 <label for="mensaje" class="colocar_mensaje">Mensaje
                 </label>                     
                 <textarea name="introducir-mensaje" class="area-mensaje" id="mensaje" placeholder="Deja aquí tu comentario..." maxlength="250" minlength="4"></textarea> 
               </p>                    
             
-              <button class="button-form" type="submit" name="enviar_formulario" id="enviar"><p>Registrarse</p></button>
+              <button class="button-form btn-formulario" type="submit" name="enviar_formulario" id="enviar"><p>Registrarse</p></button>
     
               <p class="aviso">
                 <span class="obligatorio"> * </span>Los campos son obligatorios.
@@ -180,37 +179,11 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/js/registro.js"></script>
 </body>
 </html>
+
+
+ 

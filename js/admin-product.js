@@ -1,4 +1,4 @@
-// Datos iniciales
+
 let vasosIniciales = [
   {
     titulo: "Vaso camiseta Messi",
@@ -34,10 +34,9 @@ let vasosIniciales = [
     imagen: "https://http2.mlstatic.com/D_891483-MLA69878034474_062023-F.jpg",
     id: "8c1bd42c-33e7-45a0-b60e-5ff55717680b",
   },
-  // ... (otros productos)
 ];
 
-// Variables globales
+
 let idEditar;
 const btn = document.querySelector('button.btn[type="submit"]');
 const btnCancelar = document.getElementById("cancelar");
@@ -45,17 +44,15 @@ const tableBodyHTML = document.querySelector("#table-body");
 const inputFiltrarHTML = document.getElementById("filtrar")
 const formularioProductoHTML = document.getElementById("formularioProducto");
 
-// Obtener productos del localStorage o usar los datos iniciales
 let vasosProducto =
   JSON.parse(localStorage.getItem("productos")) || vasosIniciales;
 
 if (JSON.parse(localStorage.getItem("productos")) === null) {
   localStorage.setItem("productos", JSON.stringify(vasosProducto));
 }
-// Pintar productos al cargar la página
+
 pintarProductos(vasosProducto);
 
-// Función para pintar productos en la tabla
 function pintarProductos(arrayAPintar) {
   tableBodyHTML.innerHTML = "";
 
@@ -85,7 +82,7 @@ function pintarProductos(arrayAPintar) {
 inputFiltrarHTML.addEventListener('keyup', (evt) => {
   const busqueda = evt.target.value.toLowerCase();
   const resultado = vasosProducto.filter((vasoFiltro) => {
-    // Desestructurar el título del vasoFiltro y convertirlo a minúsculas
+
     const { titulo } = vasoFiltro;
     return titulo.toLowerCase().includes(busqueda);
   });
@@ -93,7 +90,6 @@ inputFiltrarHTML.addEventListener('keyup', (evt) => {
 });
 
 
-// Función para borrar un producto
 const borrarProducto = (idABuscar) => {
   Swal.fire({
     title: "Desea borrar producto",
@@ -118,7 +114,7 @@ const borrarProducto = (idABuscar) => {
   });
 };
 
-// Listeners de eventos
+
 formularioProductoHTML.addEventListener("submit", (evt) => {
   evt.preventDefault();
 
@@ -135,15 +131,13 @@ formularioProductoHTML.addEventListener("submit", (evt) => {
   };
 
   if (idEditar) {
-    //Busco el indice del elemento que quiero editar
     const index = vasosProducto.findIndex((vaso) => {
       return vaso.id === idEditar;
     });
-    //Remplazo el producto encontrado directamente en el array
+ 
     vasosProducto[index] = nuevoProducto;
-    //Reseteo la variable editar
     idEditar = undefined;
-    //Vuelvo el botón a su estado normal
+
     btn.innerText = "Agregar producto";
     btn.classList.remove("btn-success");
   } else {
@@ -162,7 +156,7 @@ formularioProductoHTML.addEventListener("submit", (evt) => {
   el.titulo.focus();
 });
 
-// Función para editar un producto
+
 const editarProducto = function (idRecibido) {
   const productoEditar = vasosProducto.find((prod) => prod.id === idRecibido);
 
